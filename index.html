@@ -77,10 +77,43 @@
 </ul><p>Norikra is always open for users feedbacks and pull-requests.</p>
 
 <h2>
-<a name="how-to-install" class="anchor" href="#how-to-install"><span class="octicon octicon-link"></span></a>How to install</h2>
+<a name="how-to-install-and-start" class="anchor" href="#how-to-install-and-start"><span class="octicon octicon-link"></span></a>How to install and start</h2>
+
+<ol>
+<li>Install JRuby on your machine, and export PATH to jruby.
+
+<ul>
+<li>check <code>ruby -v</code> says like 'jruby 1.7.4' or same</li>
+</ul>
+</li>
+<li>Install norikra gem: <code>gem install norikra</code>
+</li>
+<li>Start norikra: <code>norikra start</code>
+</li>
+</ol><p>WebUI is available on <code>http://hostname:26578/</code>.</p>
+
+<ul>
+<li>To daemonize
+
+<ul>
+<li>just do <code>norikra start --daemonize --logdir=/var/log/norikra</code>
+</li>
+<li>with permission for pidfile /var/run/norikra/norikra.pid, and logdir</li>
+</ul>
+</li>
+<li>And to stop
+
+<ul>
+<li>do <code>norikra stop</code>
+</li>
+</ul>
+</li>
+</ul><p>Other options like supervisord, Upstart, systemd and others are available.</p>
 
 <h2>
 <a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>Stay tuned!</p>
 
 <h2>
 <a name="software-design" class="anchor" href="#software-design"><span class="octicon octicon-link"></span></a>Software design</h2>
