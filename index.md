@@ -126,17 +126,20 @@ Coming soon.
 ### Performance?
 
 Not tested in details yet. Norikra's performance and throughput are affected by:
+
  * number of targets
  * number of queries
  * how complex queries are
  * how complex UDFs are
 
 Current Status:
+
  * 10 queries
  * 2,000 events per seconds
  * 5% usage of 4core CPU
 
 Main performance arguments are CPUs and memories. Use options of `norikra start`:
+
  * threading options (see: http://norikra.github.io/cli-norikra.html#performance )
  * `-X` jvm options
    * memory options like `-Xmx`
