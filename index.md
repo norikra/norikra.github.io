@@ -117,10 +117,6 @@ For details how to write your own UDF/UDAF for norikra and to release it as gem,
 
 https://github.com/norikra/norikra-udf-mock
 
-## Software design
-
-Coming soon.
-
 ## FAQs
 
 ### Performance?
@@ -152,9 +148,25 @@ None. Duplicate streams and queries before Norikra server.
 
 (Feature requests for high availability exists in TODOs)
 
-### vs Storm? vs Hive? vs RDBMS?
+### vs Storm? (or Kafka or ...)
 
-TODO
+Storm and other stream processing frameworks are framework, not processor. Storm has many features to distribute data and processing, but you should write processing code yourself, and deploy it, and then you should restart your distributed application.
+
+Norikra is a stream processor. On Norikra, you should write queries only without any restarts. But norikra doesn't have features for distribution of data and processing.
+
+If your service's event stream have huge traffic (over Gbps, over 1M events per seconds), Norikra does not fit for your problems. Storm or other stream processing frameworks work fine for such cases.
+
+If there are many small event streams and many fragile queries, Norikra works fine.
+
+Furthermore, Norikra's extremely fast bootstrapping helps you to build stream processing PoC or first version of your stream processing system. You can replace it with Storm or others when your event streams become bigger than norikra can handle it.
+
+### vs Hive? vs Impala/Presto? vs RDBMS?
+
+On Hive, Impala, Presto or RDBMS, we should manage when queries should be run, when these queries finished or where these results exists. For results every 5 minutes, we should maintain external system to kick queries per 5 minutes. Many queries at just a same time make troubles by disk I/O performance, swapped memories and high load averages.
+
+On Norikra, once query registered, that runs forever. Problems like thundering herd does not occur because norikra's stream queries process events incrementally, and norikra does not use disks. By this reason, norikra is free from troubles of large size HDDs.
+
+Splitting event streams is good idea. One is processed on Norikra, and the other is stored on storages, and processed by query engines like Hive/Impala/Presto or RDBMS. Both processing will be written by SQL... it is a variation of "Lambda architecture". We can get result as streams from norikra, and also get as hourly/daily or backup batches from query engines.
 
 ### Stream connectors?
 
@@ -163,7 +175,13 @@ Fluentd and fluent-plugin-norikra available.
  * http://fluentd.org/
  * https://github.com/norikra/fluent-plugin-norikra
 
-TODO: more details
+Fluentd make log collection and delivery extremely easy, and have many plugins to store it on storages or to put it into tools/services for visualizations and notifications.
+
+Norikra's stream input is very easy to connect fluentd's output, and Norikra's output is also easy to connect fluentd's input. So we can use Norikra as stream processor on Fluentd's data stream infrastructure.
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/29174189" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/tagomoris/fluentpluginnorikra-fluentdcasual" title="fluent-plugin-norikra #fluentdcasual" target="_blank">fluent-plugin-norikra #fluentdcasual</a> </strong> from <strong><a href="http://www.slideshare.net/tagomoris" target="_blank">SATOSHI TAGOMORI</a></strong> </div>
+
+Of course, other connectors contributions are welcome. Please send messages to @tagomoris on Twitter to do it.
 
 ### How to pronounce 'Norikra'?
 
