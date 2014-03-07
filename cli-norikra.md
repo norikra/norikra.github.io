@@ -16,6 +16,7 @@ Options:
   -P, [--port=N]                      # port that server uses [26571]
   -s, [--stats=STATS]                 # status file path to load/dump targets, queries and server configurations [none]
       [--suppress-dump-stat]          # specify not to update stat file with updated targets/queries/configurations on runtime [false]
+      [--dump-stat-interval=N]        # interval(seconds) of status file dumps on runtime [none (on shutdown only)]
   -d, [--daemonize]                   # daemonize Norikra server [false (foreground)]
   -p, [--pidfile=PIDFILE]             # pidfile path when daemonized [/var/run/norikra/norikra.pid]
                                       # Default: /var/run/norikra/norikra.pid
