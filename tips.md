@@ -23,6 +23,19 @@ GROUP BY level, type
 * String concatination operator: `||`
   * ex: `SELECT (str1 || str2) AS joind_str FROM TargetA WHERE ...`
 
+### Aggregatin functions with filters
+
+Esper's aggregation functions (ex: `count()`, `sum()`, ...) have optional 2nd argument, filters. For example, this query calculates sumation of `bytes` of records only with `status: 200`, and bytes of all records.
+
+```sql
+SELECT
+ SUM(bytes, status=200) assuccess_bytes,
+ SUM(bytes) as total_bytes
+FROM access_log.win:time_batch(1 hour)
+```
+
+NOTE: For `count()` with filters, don't use `*` for 1st argument. Esper compiles `SELECT COUNT(*, x=y) FROM ...` as `SELECT COUNT(x=y) FROM ...`. This may not what we want. Use `SELECT COUNT(1, x=y) FROM ...`. (This may be a bug of esper.)
+
 ## Query/Target persistence
 
 Use `--stats` and related options of `norikra start`.
