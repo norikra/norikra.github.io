@@ -102,7 +102,9 @@ To specify sizes of each threads, use `--*-threads=NUM` options.
 
 ## <a name="jvm_options"></a>JVM Options
 
-In default, `norikra start` specify jvm options below:
+`norikra start` commands passes following `-X` options into its JVM.
+
+And, in default, `norikra start` specify jvm options below:
 
     -XX:-UseGCOverheadLimit
     -XX:+UseConcMarkSweepGC -XX:+UseCompressedOops

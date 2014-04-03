@@ -3,7 +3,7 @@ layout: layout
 title: Norikra
 subtitle: Schema-less Stream Processing with SQL
 ---
-# Norikra - Schema-less Stream Processing with SQL
+# Schema-less Stream Processing with SQL
 Norikra is a open source server software provides "Stream Processing" with SQL, written in JRuby, runs on JVM, licensed under GPLv2.
 
 ### Schema-less event streams (called as 'target')
@@ -106,7 +106,9 @@ And send more events:
     echo '{"path":"/content", "status":200, "referer":"/login", "agent":"MSIE", "userid":3}' | norikra-client event send www
     echo '{"path":"/content", "status":200, "referer":"/login", "agent":"Firefox", "userid":4, "search_param":"news worldwide"}' | norikra-client event send www
 
-Query 'www.search' matches the last event automatically.
+Query `www.search` matches the last event automatically.
+
+For more query details and examples, see [Query of Norikra](/query.html) and [Query Examples](/examples.html).
 
 ## How to add UDF
 
@@ -134,13 +136,7 @@ Current Status:
  * 2,000 events per seconds
  * 5% usage of 4core CPU
 
-Main performance arguments are CPUs and memories. Use options of `norikra start`:
-
- * threading options (see: http://norikra.github.io/cli-norikra.html#performance )
- * `-X` jvm options
-   * memory options like `-Xmx`
-   * GC options like `-XX:+UseConcMarkSweepGC`
-   * and many many others
+Main performance arguments are CPUs and memories. Use options of `norikra start`: threading options and JVM options (see: [Norikra CLI](/cli-norikra.html#performance))
 
 ### Availability?
 
