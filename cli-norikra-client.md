@@ -7,6 +7,7 @@ subtitle: Command line options of norikra-client
 
 ```
 Commands:
+  norikra-client admin CMD ...ARGS   # norikra server administrations
   norikra-client event CMD ...ARGS   # send/fetch events
   norikra-client field CMD ...ARGS   # manage target field/datatype definitions
   norikra-client help [COMMAND]      # Describe available commands or one specific command
@@ -63,4 +64,11 @@ Commands:
   norikra-client event help [COMMAND]            # Describe subcommands or one specific subcommand
   norikra-client event send TARGET               # send data into targets
   norikra-client event sweep [query_group_name]  # fetch all output events of all queries of default (or specified) query group
+```
+
+## Admin
+```
+Commands:
+  norikra-client admin help [COMMAND]  # Describe subcommands or one specific subcommand
+  norikra-client admin stats           # dump stats json: same with norikra server's --stats option
 ```

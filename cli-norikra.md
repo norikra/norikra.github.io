@@ -14,13 +14,16 @@ Usage:
 Options:
   -H, [--host=HOST]                   # host address that server listen [0.0.0.0]
   -P, [--port=N]                      # port that server uses [26571]
-  -s, [--stats=STATS]                 # status file path to load/dump targets, queries and server configurations [none]
-      [--suppress-dump-stat]          # specify not to update stat file with updated targets/queries/configurations on runtime [false]
+      [--ui-port=N]                   # port that Web UI server uses [26578]
+  -s, [--stats=STATS]                 # status file path to load/dump targets and queries [none]
+      [--suppress-dump-stat]          # specify not to update stat file with updated targets/queries on runtime [false]
       [--dump-stat-interval=N]        # interval(seconds) of status file dumps on runtime [none (on shutdown only)]
   -d, [--daemonize]                   # daemonize Norikra server [false (foreground)]
   -p, [--pidfile=PIDFILE]             # pidfile path when daemonized [/var/run/norikra/norikra.pid]
                                       # Default: /var/run/norikra/norikra.pid
       [--outfile=OUTFILE]             # stdout redirect file when daemonized [${logdir}/norikra.out]
+      [--bare-jvm]                    # use JVM without any recommended options
+      [--gc-log=GC-LOG]               # output gc logs on specified file path
       [--micro]                       # development or testing (inbound:0, outbound:0, route:0, timer:0, rpc:2)
       [--small]                       # virtual or small scale servers (inbound:1, outbount:1, route:1, timer:1, rpc:2)
       [--middle]                      # rackmount servers (inbound:4, outbound:2, route:2, timer:2, rpc:4)
@@ -97,3 +100,21 @@ Norikra's simple specifiers details of threadings are:
 
 To specify sizes of each threads, use `--*-threads=NUM` options.
 
+## <a name="jvm_options"></a>JVM Options
+
+In default, `norikra start` specify jvm options below:
+
+    -XX:-UseGCOverheadLimit
+    -XX:+UseConcMarkSweepGC -XX:+UseCompressedOops
+    -XX:CMSInitiatingOccupancyFraction=70 -XX:+UseCMSInitiatingOccupancyOnly
+    -XX:NewRatio=1
+    -XX:SurvivorRatio=2 -XX:MaxTenuringThreshold=15 -XX:TargetSurvivorRatio=80
+    -XX:SoftRefLRUPolicyMSPerMB=200
+
+Use `--bare-jvm` option if you want to specify these (or other conflicting) options.
+
+For GC logs in trouble shootings, specifying `--gc-log FILE_PATH` make these options below enabled:
+
+    -Xloggc:FILE_PATH
+    -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps
+    -XX:+HeapDumpOnOutOfMemoryError
