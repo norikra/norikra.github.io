@@ -68,6 +68,8 @@ HAVING COUNT(*) >= 60
 
 These queries are very simple, and we can fix threasholds or other conditions anytime.
 
+(From this entry: [Developers.IO](http://dev.classmethod.jp/cloud/aws/block_dos_attack_by_norikra/))
+
 ### Summarize application logs
 
 To tell application error logs to programmers, but not to flood notification center by one kind of messages:
@@ -85,3 +87,5 @@ GROUP BY level, file, line
 ```
 
 Logs from a same point of code (same file, line and log-level) are expected to be a same log. Programmers can understand its severity by level and count, and get a first investigation step at a grance by sample of log message by `LAST(message)` in output events.
+
+(From this entry: [kawamuray's blog](http://kawamuray.hatenablog.com/entry/2014/03/16/022448))
