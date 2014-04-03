@@ -24,16 +24,20 @@
     <div class="wrapper">
       <nav>
         <ul></ul>
+
+        <h3 id="Links">Links</h2>
+        <ol>
+          <li><a href="/index.html">Top</a></li>
+          <li><a href="/query.html">Query Syntax</a></li>
+          <li><a href="/examples.html">Query Examples</a></li>
+          <li><a href="/cli-norikra.html">Server CLI</a>, <a href="/cli-norikra-client.html">Client CLI</a></li>
+          <li><a href="/tips.html">Tips</a></li>
+          <li><a href="/presentations.html">Presentations</a></li>
+          <li><a href="/pages.html">All Pages</a></li>
+        </ol>
       </nav>
       <section>
         {{ content }}
-
-        <h2 id="Links">Links</h2>
-        <ul>
-          {% for page in site.pages %}
-          <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-          {% endfor %}
-        </ul>
       </section>
       <footer>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
