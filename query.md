@@ -7,18 +7,17 @@ subtitle: Syntax and examples
 
 Norikra's query is actually [Esper's EPL](http://esper.codehaus.org/esper-4.11.0/doc/reference/en-US/html/index.html). But some limitations and additional features exist.
 
-* Limitations
-  * Only `SELECT` clause is supported and tested
-    * Features for SELECT are supported: Sub queries, JOINs and Patterns
-    * Java method invocations
-    * UDFs
-  * Unsupported statements of EPL
-    * Annotations
-    * Additional declarations (expressions, scripts, schemas and windows)
-    * Contexts, variables and constants
-    * Merging/splitting/updating streams (`INSERT INTO`, `UPDATE`)
-    * Accessing external data
-    * Event delivery with `For` clause
+* Only `SELECT` clause is supported and tested
+  * Features for SELECT are supported: Sub queries, JOINs and Patterns
+  * Java method invocations
+  * UDFs
+* Unsupported statements of EPL
+  * Annotations
+  * Additional declarations (expressions, scripts, schemas and windows)
+  * Contexts, variables and constants
+  * Merging/splitting/updating streams (`INSERT INTO`, `UPDATE`)
+  * Accessing external data
+  * Event delivery with `For` clause
 * Additional features
   * Schema-less events (called 'targets')
   * Complex events support: Container fields (hash, array)
