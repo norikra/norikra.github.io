@@ -121,6 +121,17 @@ https://github.com/norikra/norikra-udf-mock
 
 ## FAQs
 
+### Client libraries?
+
+* Ruby/JRuby
+  * `gem install norikra-client` or `gem norikra-client-jruby`
+  * https://github.com/norikra/norikra-client-ruby
+* Perl
+  * `cpanm Norikra::Client`
+  * https://github.com/norikra/norikra-client-perl
+* Python
+  * https://github.com/norikra/norikra-client-python
+
 ### Performance?
 
 Not tested in details yet. Norikra's performance and throughput are affected by:
