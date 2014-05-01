@@ -115,6 +115,8 @@ For more query details and examples, see [Query of Norikra](/query.html) and [Qu
 UDFs/UDAFs can be loaded as plugin gems over rubygems or as private plugins.
 In fact, Norikra's UDFs/UDAFs are Esper's plugin with a JRuby class to indicate plugin metadata.
 
+Norikra's UDFs/UDAFs can be written in JRuby, or Java.
+
 For details how to write your own UDF/UDAF for norikra and to release it as gem, see README of `norikra-udf-mock`.
 
 https://github.com/norikra/norikra-udf-mock
