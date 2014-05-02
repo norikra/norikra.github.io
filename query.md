@@ -127,12 +127,12 @@ SELECT
   name,
   age,
   COUNT(*) AS count
-FROM events.win:time_batch(timestamp, 1 hours)
+FROM events.win:ext_timed_batch(timestamp, 1 hours)
 WHERE age > 15
 GROUP BY name, age
 ```
 
-`timestamp` must be a long-value field (Norikra's 'integer' fields are actually Long) which contains a milliseconds from epoch. Expressions are valid if you have a field with seconds from epoch. (ex: `FROM events.win:time_batch( seconds_from_epoch * 1000, 1 hours )`)
+`timestamp` must be a long-value field (Norikra's 'integer' fields are actually Long) which contains a milliseconds from epoch. Expressions are valid if you have a field with seconds from epoch. (ex: `FROM events.win:ext_timed_batch( seconds_from_epoch * 1000, 1 hours )`)
 
 Optional arguments for time offset and flow controls are also available.
 
