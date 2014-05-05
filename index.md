@@ -203,3 +203,7 @@ Japanese famous mountains, which has great winding roads like dynamic data strea
 ## LICENSE
 Norikra is licensed under GPLv2.
 http://opensource.org/licenses/GPL-2.0
+
+### Logo
+* designed by designer.du@hotmail.com
+* Logo images are licensed under CC BY

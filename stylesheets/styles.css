@@ -508,7 +508,11 @@ body {
   font-weight: 300;
   margin: 0px;
   padding: 0px 0 20px 0px;
-  background: url(../images/body-background.png) #eae6d1;
+  background-color: #eae6d1;
+  background-image: url("../images/norikra.background.png");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -651,7 +655,7 @@ dt {
 }
 
 header {
-  padding: 25px 20px 40px 20px;
+  padding: 5px 20px 10px 20px;
   margin: 0;
   position: fixed;
   top: 0;
@@ -666,7 +670,6 @@ header {
   box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.75);
   z-index: 99;
   -webkit-font-smoothing: antialiased;
-  min-height: 76px;
 }
 header h1 {
   font: 40px/48px "Copse", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -795,7 +798,7 @@ section {
   width: 590px;
   padding: 30px 30px 50px 30px;
   margin: 20px 0;
-  margin-top: 190px;
+  margin-top: 80px;
   position: relative;
   background: #fbfbfb;
   -moz-border-radius: 3px;
@@ -818,7 +821,7 @@ small {
 nav {
   width: 230px;
   position: fixed;
-  top: 220px;
+  top: 110px;
   left: 50%;
   margin-left: -580px;
   text-align: right;
@@ -895,7 +898,7 @@ footer {
     border: 1px solid #e5e5e5;
     border-width: 1px 0;
     padding: 20px auto;
-    margin: 190px auto 20px;
+    margin: 80px auto 20px;
     max-width: 600px;
   }
 
