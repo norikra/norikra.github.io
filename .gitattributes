@@ -1,0 +1,2 @@
+*.eps -crlf -diff
+*.ai -crlf -diff
