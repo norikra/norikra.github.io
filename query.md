@@ -22,7 +22,7 @@ Norikra's query is actually [Esper's EPL](http://esper.codehaus.org/esper-4.11.0
   * Schema-less events (called 'targets')
   * Complex events support: Container fields (hash, array)
 
-Norika's queries are designed to do simple `SELECT ... FROM ...`, without any schemas. Many of complex features of EPL can be done with schema-less simple SELECT queries (ex: Merging streams are same with to use a target for many kind of events).
+Norikra's queries are designed to do simple `SELECT ... FROM ...`, without any schemas. Many of complex features of EPL can be done with schema-less simple SELECT queries (ex: Merging streams are same with to use a target for many kind of events).
 
 Norikra's queries MUST be parsed and compiled as Esper EPL. Extended syntax is in EPL syntax.
 
