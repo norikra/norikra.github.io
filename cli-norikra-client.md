@@ -63,6 +63,7 @@ Commands:
   norikra-client event fetch QUERY_NAME          # fetch events from specified query
   norikra-client event help [COMMAND]            # Describe subcommands or one specific subcommand
   norikra-client event send TARGET               # send data into targets
+  norikra-client event see QUERY_NAME            # see events of specified query, but not delete
   norikra-client event sweep [query_group_name]  # fetch all output events of all queries of default (or specified) query group
 ```
 
