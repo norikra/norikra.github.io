@@ -340,7 +340,8 @@ SELECT
   a.country AS country,
   b.code AS event_code,
   COUNT(*) AS times
-FROM registrations.std:unique(name) AS a,
+FROM registrations.std:unique(name) AS a
+JOIN
      behavior.win:time_batch(1 hours) AS b
 ON a.name = b.name
 WHERE b.log_level IN ('INFO', 'WARN', 'ERROR')
