@@ -40,6 +40,8 @@ Norikra is always open for users feedbacks and pull-requests.
 
 WebUI is available on `http://hostname:26578/`.
 
+![webui screenshot](/images/webui.screenshot.png)
+
 Norikra server doesn't save targets/queries in default.
 Specify `--stats STATS_FILE_PATH` option to save these runtime configuration automatically.
 
