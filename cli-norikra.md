@@ -79,7 +79,7 @@ Norikra server has 3 types of threads:
 
 In many cases, norikra server handling high rate events needs large number of rpc threads to handle input/output rpc requests. WebUI don't need threads rather than default in almost all of cases.
 
-Engine threads depends on queries running on norikra, input/output event data rate and target numbers. For more details, see Esper's API Documents: http://esper.codehaus.org/esper-4.10.0/doc/reference/en-US/html/api.html#api-threading
+Engine threads depends on queries running on norikra, input/output event data rate and target numbers. For more details, see Esper's API Documents: http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/api.html#api-threading
 
 Norikra's simple specifiers details of threadings are:
 

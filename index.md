@@ -110,6 +110,21 @@ Query `www.search` matches the last event automatically.
 
 For more query details and examples, see [Query of Norikra](/query.html) and [Query Examples](/examples.html).
 
+### JSON Events over HTTP
+
+Events (and all Norikra operations) can be passed by JSON over HTTP. HTTP JSON RPC port is 26578 in default (same as `--ui-port`).
+
+Sending events with curl:
+
+    curl -X POST -H "Content-Type: application/json" --data '{"target":"TARGETNAME", "events":[{event}, {event}]}' http://localhost:26578/api/send
+
+And to fetch query output:
+
+    # see (without removing)
+    curl -X GET -H "Content-Type: application/json" --data '{"query_name":"QUERYNAME"}' http://localhost:26578/api/see
+    # fetch
+    curl -X POST -H "Content-Type: application/json" --data '{"query_name":"QUERYNAME"}' http://localhost:26578/api/event
+
 ## How to add UDF
 
 UDFs/UDAFs can be loaded as plugin gems over rubygems or as private plugins.
