@@ -509,10 +509,6 @@ body {
   margin: 0px;
   padding: 0px 0 20px 0px;
   background-color: #eae6d1;
-  background-image: url("../images/norikra.background.png");
-  background-position: right bottom;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
