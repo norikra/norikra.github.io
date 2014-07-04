@@ -45,7 +45,7 @@ WebUI is available on `http://hostname:26578/`.
 Norikra server doesn't save targets/queries in default.
 Specify `--stats STATS_FILE_PATH` option to save these runtime configuration automatically.
 
-    norikra start --stats /path/to/data/norikra.stats.json
+    norikra start --stats=/path/to/data/norikra.stats.json
 
 JVM options like `-Xmx` are available:
 
@@ -54,7 +54,7 @@ JVM options like `-Xmx` are available:
 To daemonize (with permission for pidfile /var/run/norikra/norikra.pid, and logdir):
 
     norikra start -Xmx2g --daemonize --logdir=/var/log/norikra
-    norikra start -Xmx2g --daemonize --pidfile /var/run/norikra.pid --logdir=/var/log/norikra
+    norikra start -Xmx2g --daemonize --pidfile=/var/run/norikra.pid --logdir=/var/log/norikra
     # To stop
     norikra stop
 
