@@ -74,7 +74,7 @@ A query without any views specified runs for all events. This query puts output 
 SELECT name, age FROM events WHERE age > 15
 ```
 
-Norikra v0.1.x has no RPC API to fetch output events as stream. So queries of this type are slightly dangerous: huge amount of output events may exist in memory if user does not fetch these.
+**NOTE:** Current versions of Norikra has no RPC API to fetch output events as stream. So queries of this type are slightly dangerous: huge amount of output events may exist in memory if user does not fetch these.
 
 ### Time window (time batch window)
 
@@ -135,6 +135,8 @@ GROUP BY name, age
 `timestamp` must be a long-value field (Norikra's 'integer' fields are actually Long) which contains a milliseconds from epoch. Expressions are valid if you have a field with seconds from epoch. (ex: `FROM events.win:ext_timed_batch( seconds_from_epoch * 1000, 1 hours )`)
 
 Optional arguments for time offset and flow controls are also available.
+
+**NOTE:** This data window expects that events are ordered by `timestamp` strictly, and disordered events will be discarded. Use `ext_timed_batch` only with sorted events.
 
 ### Time length window (sliding time window)
 
