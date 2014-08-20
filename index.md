@@ -1,7 +1,7 @@
 ---
 layout: layout
 title: Norikra
-subtitle: Schema-less Stream Processing with SQL
+subtitle: Stream processing with SQL for everybody
 ---
 # Schema-less Stream Processing with SQL
 Norikra is a open source server software provides "Stream Processing" with SQL, written in JRuby, runs on JVM, licensed under GPLv2.
