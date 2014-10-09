@@ -39,6 +39,29 @@ Esper's `COUNT()` can receive optional 2nd argument as a filter expression, as f
 
 NOTE: When using `COUNT()` with second argument, DO NOT USE `*` for first argument. `COUNT(*, filter_expression)` is parsed as `COUNT(filter_expression)`, and counting result is a number of records which 'filter_expression' IS NOT NULL. To avoid this situation, specify contant like '1'.
 
+### Count moving average of active unique users
+
+Simply, we can use `COUNT(DISTINCT user_id)` with `win:time(range)` to count unique users. But `win:time()` puts output records per all input records. These are too many to get summarized data/graph.
+
+So, use `LOOPBACK()` and 2nd query with `win:time_batch()` to summarize output data of moving average, like below:
+
+```sql
+-- 1st query
+-- with query group 'LOOPBACK(active_users_5min)'
+SELECT COUNT(DISTINCT user_id) AS active_users
+FROM activity.win:time(5 min)
+```
+
+```sql
+-- 2nd query
+SELECT MAX(active_users) AS active_users
+FROM active_users_5min.win:time_batch(10 sec)
+```
+
+By these queries, we can get 1 output of active unique users per 10 seconds. This event rate is good for many purposes.
+
+(From this entry: [beatsync.net](http://beatsync.net/main/log20141008.html))
+
 ## Alerting
 
 ### Finding attackers
