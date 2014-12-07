@@ -68,6 +68,10 @@ For other options, see help(`norikra help start`) or reference page:
 
 http://norikra.github.io/cli-norikra.html
 
+### Launch with Docker
+
+[Docker image](https://registry.hub.docker.com/u/myfinder/docker-norikra/) available. Thanks [@myfinder](https://github.com/myfinder)!
+
 ## Examples of queries and events
 
 To add queries and events, use `norikra-client` command, which included in `norikra-client` gem and `norikra-client-jruby` gem. `norikra-client-jruby` gem will be installed with `norikra`, but it requires JVM execution waits. Without JVM, use `norikra-client` gem with CRuby.
