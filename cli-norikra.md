@@ -102,6 +102,10 @@ Norikra's simple specifiers details of threadings are:
 
 To specify sizes of each threads, use `--*-threads=NUM` options.
 
+### Jetty threads
+
+Jetty requires threads more than CPU cores. If you execute Norikra on 4 CPU cores server, specify `--rpc-threads` and `--web-threads` more than 4.
+
 ## <a name="jvm_options"></a>JVM Options
 
 `norikra start` commands passes following `-X` options into its JVM.
