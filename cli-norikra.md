@@ -88,17 +88,17 @@ Norikra's simple specifiers details of threadings are:
   * rpc: 2 threads
   * web: 2 threads
 * small: low rate events on virtual servers
-  * engine: inbound 1, outbound 1, route 1, timer 1 threads
-  * rpc: 2 threads
-  * web: 2 threads
+  * engine: inbound 2, outbound 2, route 2, timer 2 threads
+  * rpc: 9 threads
+  * web: 9 threads
 * middle: high rate events on physical servers
-  * engine: inbound 4, outbound 2, route 2, timer 2 threads
-  * rpc: 4 threads
-  * web: 2 threads
+  * engine: inbound 4, outbound 4, route 4, timer 4 threads
+  * rpc: 17 threads
+  * web: 17 threads
 * large: inbound heavy traffic and huge amount of queries
-  * engine: inbound 6, outbound 6, route 4, timer 4 threads
-  * rpc: 8 threads
-  * web: 2 threads
+  * engine: inbound 8, outbound 8, route 8, timer 8 threads
+  * rpc: 49 threads
+  * web: 49 threads
 
 To specify sizes of each threads, use `--*-threads=NUM` options.
 
