@@ -25,10 +25,10 @@ Options:
       [--outfile=OUTFILE]                  # stdout redirect file when daemonized [${logdir}/norikra.out]
       [--bare-jvm]                         # use JVM without any recommended options
       [--gc-log=GC-LOG]                    # output gc logs on specified file path
-      [--micro]                            # development or testing (inbound:0, outbound:0, route:0, timer:0, rpc:2)
-      [--small]                            # virtual or small scale servers (inbound:1, outbount:1, route:1, timer:1, rpc:2)
-      [--middle]                           # rackmount servers (inbound:4, outbound:2, route:2, timer:2, rpc:4)
-      [--large]                            # high performance servers (inbound: 6, outbound: 6, route:4, timer:4, rpc: 8)
+      [--micro]                            # development or testing (inbound:0, outbound:0, route:0, timer:0, rpc:2, web:2)
+      [--small]                            # virtual or small scale servers (inbound:2, outbount:2, route:2, timer:2, rpc:9, web:9)
+      [--middle]                           # rackmount servers (inbound:4, outbound:4, route:4, timer:4, rpc:17, web:17)
+      [--large]                            # high performance servers (inbound: 8, outbound: 8, route:8, timer:8, rpc:49, web:49)
       [--inbound-threads=N]                # number of threads for inbound data
       [--outbound-threads=N]               # number of threads for outbound data
       [--route-threads=N]                  # number of threads for events routing for query execution
