@@ -5,7 +5,7 @@ subtitle: Syntax and examples
 ---
 # Query of Norikra
 
-Norikra's query is actually [Esper's EPL](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/index.html). But some limitations and additional features exist.
+Norikra's query is actually [Esper's EPL](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/index.html). But some limitations and additional features exist.
 
 * Only `SELECT` clause is supported and tested
   * Features for SELECT are supported: Sub queries, JOINs and Patterns
@@ -108,7 +108,7 @@ This query does its process for 1 hour from the time query registered, to 1 hour
 12:31:05  -> output events (for event N+1 .. )
 ```
 
-For time-period, many units are available, like `sec|second|seconds, min|minute|minutes, hour|hours, day|days` to `year|years` !. ([EPL document](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/epl_clauses.html#epl-syntax-time-periods))
+For time-period, many units are available, like `sec|second|seconds, min|minute|minutes, hour|hours, day|days` to `year|years` !. ([EPL document](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl_clauses.html#epl-syntax-time-periods))
 
 If you want to specify time period offset to any point (ex: from 10:00:00 to 11:00:00 for 1 hour time batch), use second (optional) argument of time_batch with long-value milliseconds from epoch (ex: `events.win:time_batch(1 hour, 0L)`).
 
@@ -116,7 +116,7 @@ And third optional argument is flow control. Comment below is a quotation from E
 
     By default, if there are no events arriving in the current interval (insert stream), and no events remain from the prior batch (remove stream), then the view does not post results to listeners. The view allows overriding this default behavior via flow control keywords.
 
-If no one event arrived in a time batch, query outputs '0' records only for the first time, and no records for second (or later) time batches. For available options, see [EPL document](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/epl-views.html#view-win-time-batch).
+If no one event arrived in a time batch, query outputs '0' records only for the first time, and no records for second (or later) time batches. For available options, see [EPL document](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl-views.html#view-win-time-batch).
 
 ### Externally timed batch window
 
@@ -186,7 +186,7 @@ FROM events.win:time_batch(1 day, 0L).std:unique(event_code)
 
 * Others
 
-[Many more views](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/epl-views.html) are availabe in Norikra, as same as Esper EPL itself. Norikra have no limitations for views. If you found any unavailabilities, it's bug.
+[Many more views](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl-views.html) are availabe in Norikra, as same as Esper EPL itself. Norikra have no limitations for views. If you found any unavailabilities, it's bug.
 
 ## Field name escape
 
@@ -309,7 +309,7 @@ Norikra/Esper has many operators:
 * String comparison operations: `LIKE`, `REGEXP`
 * `exp IN (items)`, `exp IN rage`(open range: `(0:100)` and close range: `[0:100]`), and `between`
 
-See [EPL reference: Operators](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/epl-operator.html).
+See [EPL reference: Operators](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl-operator.html).
 
 Esper has built-in functions like these:
 
@@ -320,21 +320,21 @@ Esper has built-in functions like these:
 * `AVG()`, `COUNT()`, `MAX()`, `MIN()`, `SUM()` and DISTINCT
 * `FIRST()`, `LAST()`, `MAXBY()`, `MINBY()`
 
-See [EPL reference: Functions](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/functionreference.html).
+See [EPL reference: Functions](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/functionreference.html).
 
 ## Group by, Having, Order by, Limit
 
 These keywords work as same as we expect. For more, see EPL reference.
 
-* "Aggregates and grouping: the Group-by Clause and the Having Clause" ([link](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/epl_clauses.html#epl-grouping-aggregating))
-* "Limiting Row Count: the Limit Clause" ([link](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/epl_clauses.html#epl-limit))
-* "Sorting Output: the Order By Clause" ([link](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/epl_clauses.html#epl-order-by))
+* "Aggregates and grouping: the Group-by Clause and the Having Clause" ([link](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl_clauses.html#epl-grouping-aggregating))
+* "Limiting Row Count: the Limit Clause" ([link](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl_clauses.html#epl-limit))
+* "Sorting Output: the Order By Clause" ([link](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl_clauses.html#epl-order-by))
 
 ### Group by with Rollup, Cube and Grouping sets
 
 For analytics usage, Rollup, Cube and Grouping sets are supported with Group-by.
 
-* "Using Group-By with Rollup, Cube and Grouping Sets" ([link](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/epl_clauses.html#epl-grouping-rollup))
+* "Using Group-By with Rollup, Cube and Grouping Sets" ([link](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl_clauses.html#epl-grouping-rollup))
 
 ## JOINs and SubQueries
 
@@ -373,8 +373,8 @@ WHERE log_level IN ('INFO', 'WARN', 'ERROR')
 
 For JOINs and SubQueries, Esper EPL have many restrictions. See documents.
 
-* "Joining Event Streams" ([link](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/epl_clauses.html#epl-join))
-* "Subqueries" ([link](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/epl_clauses.html#epl-subqueries))
+* "Joining Event Streams" ([link](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl_clauses.html#epl-join))
+* "Subqueries" ([link](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl_clauses.html#epl-subqueries))
 
 ## Fully-qualified field names and container fields
 
@@ -404,7 +404,7 @@ FROM Events
 
 ## Filters/Patterns
 
-Both of [Filters](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/epl_clauses.html#epl-from-clause-filter) and [Patterns](http://esper.codehaus.org/esper-5.0.0/doc/reference/en-US/html/event_patterns.html) are available in Norikra. For more details, see EPL's reference.
+Both of [Filters](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl_clauses.html#epl-from-clause-filter) and [Patterns](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/event_patterns.html) are available in Norikra. For more details, see EPL's reference.
 
 ## Miscellaneous rules
 
