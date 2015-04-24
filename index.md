@@ -21,8 +21,10 @@ No more restarts required for new processing logs, queries, targets and any othe
 ### Ultra fast bootstrap, small start
 Only 3 minutes required to install, configure and start norikra server.
 
-### UDF plugins
-UDFs can be added as plugins, written by yourself, or installed from RubyGems.org.
+### UDF/Listener plugins
+UDFs can be added as plugins, written by yourself, or installed from RubyGems.org. Listener is the connector of queries outputs. Users can write their own Listeners to send output data into any other systems/storages directly.
+
+These plugins are dynamically reloaded after installation on JRuby runtime, by sending SIGHUP to the Norikra process (v1.3.0 or later).
 
 ### Open source software
 Norikra is licensed under GPLv2, and developed in github. Its core engine is based on Esper, which is GPLv2 library for SQL-based event processing.
@@ -142,12 +144,32 @@ For details how to write your own UDF/UDAF for norikra and to release it as gem,
 
 https://github.com/norikra/norikra-udf-mock
 
+## How to add Listener
+
+Norikra stores query output events into built-in memory pool. With default built-in memory pool, users must fetch these data from anywhere to Norikra server.
+
+Listener plugin can receive events directly from query output. So once you wrote Listener plugin, you can send output events to somewhere, RPC endpoint, storage system, distributed filesystems, or anywhere you want.
+
+Norikra's Listeners can be written in JRuby.
+
+For details how to write your own Listener and to release it as gem, see README of `norikra-listener-mock`.
+
+https://github.com/norikra/norikra-lilstener-mock
+
+## Signals
+
+Norikra handle some Unix signals to control its behavior.
+
+* **INT**, **TERM**: shutdown Norikra process
+* **USR2**: dump stats (target/index)
+* **HUP**: reload plugins
+
 ## FAQs
 
 ### Client libraries?
 
 * Ruby/JRuby
-  * `gem install norikra-client` or `gem norikra-client-jruby`
+  * `gem install norikra-client`
   * https://github.com/norikra/norikra-client-ruby
 * Perl
   * `cpanm Norikra::Client`
@@ -200,7 +222,9 @@ Splitting event streams is good idea. One is processed on Norikra, and the other
 
 ### Stream connectors?
 
-Fluentd and fluent-plugin-norikra available.
+Listener is a kind of Stream connector, for output event stream.
+
+On the other hand, Fluentd and fluent-plugin-norikra available.
 
  * http://fluentd.org/
  * https://github.com/norikra/fluent-plugin-norikra

@@ -46,3 +46,17 @@ Once you regisitered a query with loopback query group, norikra does:
  1. define fields of `target_name` by outputs of the query
 
 Loopback query group is supported on Norikra v1.0.0 or later.
+
+## STDOUT query group
+
+Norikra provides `STDOUT()` query group to dump query output events on Console directly.
+
+## Listeners
+
+Norikra has a feature named as Listener, to accept output records of queries and to execute any processing for these events. In fact, both of `LOOPBACK(...)` and `STDOUT()` are implemented as built-in Listener plugins.
+
+All Listener plugins have its name and just 1 String argument. There are used in query group fields, like `NAME(argument)`.
+
+Users of Norikra can write any other Listener plugins for their own purposes. See documents of `norikra-listener-mock` repository, and try it.
+
+https://github.com/norikra/norikra-lilstener-mock
