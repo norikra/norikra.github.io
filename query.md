@@ -419,10 +419,13 @@ Esper EPL's syntax have escaping by backquotes. But Norikra's query does NOT sup
     NG: `field name`
     OK: field_name
 
-### Field existing check
+### Field existing check / Missing fields
 
 Norikra's queries are evaluated for events, which have all fields used in that query. Field existence checks are automatically done by Norikra server, and events without required fields are ignored.
 
 Esper EPL have a function named as `exist()`, but in Norikra query, `exist( someone )` referes a field 'someone', so this expression is always true. So you should just use fields directly, without existence check, in Norikra.
 
-If you want to use any field names in query even though that fields does not exists in input records, specify that field as non-optional.
+If you want to use any field names in query even though that fields does not exists in input records, specify that field as non-optional per target, OR, specify `NULLABLE(field_name)` in queries.
+
+Once `field_a`, `field_b` and `NULLABLE(field_c)` specified in a query (QUERY_A), Norikra processes all events with `field_a`, `field_b` and with/without `field_c` for QUERY_A. NULL will be used for events without `field_c`.
+
