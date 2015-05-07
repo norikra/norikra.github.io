@@ -39,7 +39,7 @@ We can fetch many output events from many related queries (per service, per cust
 
 Norikra connects query outputs into other target input by specifying query group as `LOOPBACK(target_name)`.
 
-Once you regisitered a query with loopback query group, norikra does:
+Once you registered a query with loopback query group, norikra does:
  1. check `target_name` format
  1. open `target_name` if it is not opened yet
  1. register the query

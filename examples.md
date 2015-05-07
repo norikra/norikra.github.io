@@ -37,7 +37,7 @@ GROUP BY path
 
 Esper's `COUNT()` can receive optional 2nd argument as a filter expression, as filter for countings. This 2nd optional argument are also exists for `AVG()`, `SUM()` and `FMAX()`, `FMIN()`.
 
-NOTE: When using `COUNT()` with second argument, DO NOT USE `*` for first argument. `COUNT(*, filter_expression)` is parsed as `COUNT(filter_expression)`, and counting result is a number of records which 'filter_expression' IS NOT NULL. To avoid this situation, specify contant like '1'.
+NOTE: When using `COUNT()` with second argument, DO NOT USE `*` for first argument. `COUNT(*, filter_expression)` is parsed as `COUNT(filter_expression)`, and counting result is a number of records which 'filter_expression' IS NOT NULL. To avoid this situation, specify constant like '1'.
 
 ### Count moving average of active unique users
 
@@ -89,7 +89,7 @@ GROUP BY remote_host
 HAVING COUNT(*) >= 60
 ```
 
-These queries are very simple, and we can fix threasholds or other conditions anytime.
+These queries are very simple, and we can fix thresholds or other conditions anytime.
 
 (From this entry: [Developers.IO](http://dev.classmethod.jp/cloud/aws/block_dos_attack_by_norikra/))
 
@@ -109,6 +109,6 @@ WHERE level IN ('error', 'critical')
 GROUP BY level, file, line
 ```
 
-Logs from a same point of code (same file, line and log-level) are expected to be a same log. Programmers can understand its severity by level and count, and get a first investigation step at a grance by sample of log message by `LAST(message)` in output events.
+Logs from a same point of code (same file, line and log-level) are expected to be a same log. Programmers can understand its severity by level and count, and get a first investigation step at a glance by sample of log message by `LAST(message)` in output events.
 
 (From this entry: [kawamuray's blog](http://kawamuray.hatenablog.com/entry/2014/03/16/022448))

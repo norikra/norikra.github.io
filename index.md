@@ -78,7 +78,7 @@ http://norikra.github.io/cli-norikra.html
 
 To add queries and events, use `norikra-client` command, which included in `norikra-client` gem and `norikra-client-jruby` gem. `norikra-client-jruby` gem will be installed with `norikra`, but it requires JVM execution waits. Without JVM, use `norikra-client` gem with CRuby.
 
-For example, think about event streams related with one web service (ex: 'www'). At first, define `target` with mandantory fields (in other words, minimal fields set for variations of 'www' events).
+For example, think about event streams related with one web service (ex: 'www'). At first, define `target` with mandatory fields (in other words, minimal fields set for variations of 'www' events).
 
     norikra-client target open www path:string status:integer referer:string agent:string userid:integer
     norikra-client target list
