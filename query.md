@@ -173,7 +173,7 @@ WHERE age > 15
 
 This query generates output events for the first arrival time of each name-family_name combinations. Of course, this distinct calculations are executed on memory, so we should use this view in combination with time (or other) windows (except for special cases, ex:country names).
 
-* Conbination
+* Combination
 
 Views can be combined. The query below is used to get the first events of each event_code, for each days.
 
@@ -186,7 +186,7 @@ FROM events.win:time_batch(1 day, 0L).std:unique(event_code)
 
 * Others
 
-[Many more views](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl-views.html) are availabe in Norikra, as same as Esper EPL itself. Norikra have no limitations for views. If you found any unavailabilities, it's bug.
+[Many more views](http://www.espertech.com/esper/release-5.2.0/esper-reference/html/epl-views.html) are available in Norikra, as same as Esper EPL itself. Norikra have no limitations for views. If you found any unavailabilities, it's bug.
 
 ## Field name escape
 
@@ -369,7 +369,7 @@ FROM behavior
 WHERE log_level IN ('INFO', 'WARN', 'ERROR')
 ```
 
-"Fully-qualified field name" means specifier like `TARGET.FIELD` or `ALIAS.FIELD`. For JOINs, Norikra cannot deterine the target fields belongs to, so all fields must be specified with target name or alias. For SubQueries, fields in inner-query must be specified with targets/aliases. Fields of outer-query does not require it.
+"Fully-qualified field name" means specifier like `TARGET.FIELD` or `ALIAS.FIELD`. For JOINs, Norikra cannot determine the target fields belongs to, so all fields must be specified with target name or alias. For SubQueries, fields in inner-query must be specified with targets/aliases. Fields of outer-query does not require it.
 
 For JOINs and SubQueries, Esper EPL have many restrictions. See documents.
 
@@ -423,7 +423,7 @@ Esper EPL's syntax have escaping by backquotes. But Norikra's query does NOT sup
 
 Norikra's queries are evaluated for events, which have all fields used in that query. Field existence checks are automatically done by Norikra server, and events without required fields are ignored.
 
-Esper EPL have a function named as `exist()`, but in Norikra query, `exist( someone )` referes a field 'someone', so this expression is always true. So you should just use fields directly, without existence check, in Norikra.
+Esper EPL have a function named as `exist()`, but in Norikra query, `exist( someone )` refers a field 'someone', so this expression is always true. So you should just use fields directly, without existence check, in Norikra.
 
 If you want to use any field names in query even though that fields does not exists in input records, specify that field as non-optional per target, OR, specify `NULLABLE(field_name)` in queries.
 
